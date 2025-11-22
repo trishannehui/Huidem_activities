@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instructor Lists</title>
+</head>
+<body>
+    <h2>Instructor Lists</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="margin-top: 15px; border-collapse: collapse; width: 100%;">
+        <tr>
+            <th>Instructor</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Days</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for instructor in instructors %}
+        <tr>
+            <td>{{ instructor.Instructor }}</td>
+            <td>{{ instructor.Fullname }}</td>
+            <td>{{ instructor.Email }}</td>
+            <td>{{ instructor.Contact }}</td>
+            <td>{{ instructor.Days }}</td>
+            <td><a href="{% url 'edit_instructor' instructor.id %}" style="color: blue;">Edit</a></td>
+            <td><a href="{% url 'delete_instructor' instructor.id %}" onclick="return confirm('Are you sure you want to delete this?')" style="color: red;">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        <a href="{% url 'create_instructor' %}"><button >Add New</button></a>
+        <a href="{% url 'dashboard' %}"><button>Back to Dashboard</button></a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Guardian</title>
+</head>
+<body>
+    <h2>Add New Guardian</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'guardian_list' %}">Back to List</a>
+</body>
+</html>

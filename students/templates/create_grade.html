@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Grades</title>
+</head>
+<body>
+    <h2>Add New Grades</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'grade_list' %}">Back to List</a>
+</body>
+</html>
